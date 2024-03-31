@@ -63,14 +63,14 @@ To run the Synthesis
 
 -> This contains all the details about the synthesis of the picorv32a 
 ------------------------------------------------------------------------------------------------------------------
-- The Chip Area of the module 147712.918400
-![chip area](https://github.com/Sanjaygk6363/vsd-openlane/blob/main/images/day1/Screenshot%20(83).png)
------------------------------------------------------------------------------------------------------------------
 - Number of cells: 14876
-  ![cell no](https://github.com/Sanjaygk6363/vsd-openlane/blob/main/images/day1/Screenshot%20(84).png)
----------------------------------------------------------------------------------------------------------------------------
+![cell no](https://github.com/Sanjaygk6363/vsd-openlane/blob/main/images/day1/Screenshot%20(83).png)
+-----------------------------------------------------------------------------------------------------------------
 - Number of FF: 1613
-![d flipflop](https://github.com/Sanjaygk6363/vsd-openlane/blob/main/images/day1/Screenshot%20(85).png)
+  ![flip flop](https://github.com/Sanjaygk6363/vsd-openlane/blob/main/images/day1/Screenshot%20(84).png)
+---------------------------------------------------------------------------------------------------------------------------
+ - The Chip Area of the module 147712.918400
+![chip area](https://github.com/Sanjaygk6363/vsd-openlane/blob/main/images/day1/Screenshot%20(85).png)
 
 ------------------------------------------------------------------------------------------------------------------------------------------
 

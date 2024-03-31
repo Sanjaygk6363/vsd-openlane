@@ -76,7 +76,7 @@ To run the Synthesis
 
 AS for the Assignment to find the Flop ratio. This can be calculated by using the formula:
 
-         Flop ratio in (%) = Total No of D-FF
+                     Flop ratio in (%) = Total No of D-FF
                                         --------------------  X 100
                                         Total No of Cells
 

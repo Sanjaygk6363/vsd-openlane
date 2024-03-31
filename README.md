@@ -1,32 +1,47 @@
 # Digital-Soc-Design
 
 # Day 1
-   The Main Structure of the Courses in Throey
+## The courses structure
 
-![]()
+![The courses structure](https://github.com/Sanjaygk6363/vsd-openlane/blob/main/images/day1/Screenshot%20(74).png)
 
-## Open the working Directory
+->RTL Synthesis:
+           RTL synthesis involves converting a hardware description language (HDL), such as Verilog or VHDL, into a gate-level representation. This representation comprises flip-flops, standard cells, and interconnected logic gates sourced from a technology library. Synthesis is typically performed using tools like Yosys, with technology mapping accomplished post-synthesis using tools like abc.
 
+->Floorplanning :
+                 It involves arranging components in a chip to meet design goals like performance and area utilization. It minimizes wire lengths and signal delays while optimizing power distribution. There are two types: chip-level, which organizes overall components, and macro-level, which details specific blocks. Tools like OpenROAD are used for floorplanning.
 
-![Going to location](https://github.com/SANGESH007/Digital-Soc-Design/assets/77070030/a83627bd-2320-42f9-b172-37c3b89ddce4)
+->Placement:
+          Determining optimal component locations for performance, power efficiency, and area utilization. OpenROAD used for Global and Detailed Placement.
 
+->Clock Tree Synthesis:
+              Efficient distribution of clock signal with minimal skew, jitter, and power consumption. Done before signal routing using OpenROAD.
+
+->Routing:
+Establishing physical connections between components using available metal layers. The router leverages specifications from the Process Design Kit (PDK), which defines parameters like thickness and pitch for each metal layer. Sky-130 PDK defines six routing tiers.
+
+------------------------------------------------------------------------------------------------------------------------------
+## Labs: Introduction about the Openlane and its commands
+
+![introduction also](https://github.com/Sanjaygk6363/vsd-openlane/blob/main/images/day1/Screenshot%20(77).png)
+
+## commands to enter Directory:
 ```bash
   cd Desktop
   cd work/tools
   cd openlane_working_dir
   cd openlane
 ```
-
-## To open the Openlane
-![openlane initiation](https://github.com/SANGESH007/Digital-Soc-Design/assets/77070030/0dec4218-a1ef-4757-bcf7-4ee7700359aa)
-
-After getting into the directory, enter the commands
+## After getting into the directory, enter the commands
 ```bash
   docker
   pwd
   ls -ltr
 ```
-To open the openlane in interactive mode, 
+![open lane](https://github.com/Sanjaygk6363/vsd-openlane/blob/main/images/day1/Screenshot%20(79).png)
+--------------------------------------------------------------------------------------------------------------------
+## To open the Openlane in interactive mode,
+, 
 ```bash
  ./flow.tcl -interactive
 ```
@@ -36,36 +51,37 @@ To prepare the openlane,
   package require openlane 0.9
   prep - design picorv32a
 ```
-## Synthesis
+![intera ctive](https://github.com/Sanjaygk6363/vsd-openlane/blob/main/images/day1/Screenshot%20(82).png)
+-------------------------------------------------------------------------------------------------------------------------
+## Final result Synthesis
 To run the Synthesis
 ```bash
  run_synthesis
 ```
-![synthesis](https://github.com/SANGESH007/Digital-Soc-Design/assets/77070030/75ebcd4f-1af6-480c-ab77-be2ff9a9428e)
+![synt hessis](https://github.com/Sanjaygk6363/vsd-openlane/blob/main/images/day1/Screenshot%20(83).png)
 
--> After Synthesis is completed, the message is shown that the "Synthesis was successful"
 
 -> This contains all the details about the synthesis of the picorv32a 
-
+------------------------------------------------------------------------------------------------------------------
 - The Chip Area of the module 147712.918400
-  ![chip area](https://github.com/SANGESH007/Digital-Soc-Design/assets/77070030/982757d8-6d38-4bf5-be5b-f1b1f15f091f)
-
+![chip area](https://github.com/Sanjaygk6363/vsd-openlane/blob/main/images/day1/Screenshot%20(83).png)
+-----------------------------------------------------------------------------------------------------------------
 - Number of cells: 14876
-  ![no of cells](https://github.com/SANGESH007/Digital-Soc-Design/assets/77070030/51b13fb1-c4aa-4017-b5c0-b38dd68ee8fb)
-
+  ![cell no](https://github.com/Sanjaygk6363/vsd-openlane/blob/main/images/day1/Screenshot%20(84).png)
+---------------------------------------------------------------------------------------------------------------------------
 - Number of FF: 1613
-  ![no of flip flops](https://github.com/SANGESH007/Digital-Soc-Design/assets/77070030/94f74ba1-b666-4017-838f-1e86e1e3d797)
+![d flipflop](https://github.com/Sanjaygk6363/vsd-openlane/blob/main/images/day1/Screenshot%20(85).png)
 
+------------------------------------------------------------------------------------------------------------------------------------------
 
--> Particularly we are interested in finding the Flop ratio.
-This can be calculated by using the formula:
-                 
-             Flop ratio in (%) = Total No of D-FF
-                               --------------------  X 100
-                                Total No of Cells
+AS for the Assignment to find the Flop ratio. This can be calculated by using the formula:
 
-                              = 1613
-                              --------   X 100
-                                14876 
+         Flop ratio in (%) = Total No of D-FF
+                                        --------------------  X 100
+                                        Total No of Cells
 
-                              = 10.8429685
+                                              =   1613
+                                                   --------   X 100
+                                                   14876 
+
+                               Flop ratio = 10.8429685

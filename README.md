@@ -98,13 +98,16 @@ The 2nd day of the lab gives the complete flow of the Floorplanning and the plac
  Optimise placement
       Optimize Plecement:- In optimize placement we will resolve the problem of distancing.Lrt's take the example of FF1 to Din2. There must be a wire going from Din2 to FF1 but before going into routing the desing or wiring we will try to estimate the capacitances. If we lokk the capacitance from Din2 to FF1 it is every huge because wire length is huge in that case even the resutance will also be huge because of that length. If we send the signal from Din2 then it will be difficult for FF1 to catch that input because distance is large. So we can place some intermediate steps to maitain the Signal integrity. By this the input is succesfully driven to the FF1 from Din2. These intermediate steps are called here Repeaters , Repeaters are basically buffers that will recondition the original signal and make a bew signal which replicate the original signal and send it forward this process repeates untill we reach to the actual cell where we want to send the input in this way signal integrity is maintained. By using repeaters we resolve the problem of signal integrity but there will be a loose of area because more and more repeaters are used more area will be used of the particular floorplan.
 
-![cell design](https://github.com/Sanjaygk6363/vsd-openlane/blob/main/day2/Screenshot%20(101).png)
+![theory place](https://github.com/Sanjaygk6363/vsd-openlane/blob/main/day2/Screenshot%20(97).png)
+
+
  cell design flow
          Need for libraries and characterization
 Every ICdesign Flow needs to go through the several steps. First step to go through is Logic Synthesis, let's say if we have a functionality which is coded in a form of an RTL so first we need to convert the functionality into legal hardware is refered to as Logic Synthesis. Ouput of the logic synthesis is arrangement of gates that will represent the original functionality that has been described using an RTL. Next step of logic synthesis is Floorplaning, in this we omport the output of logic synthesis and decide the size of the Core and Die. The next step after floorplaning is Placement, in this we take the particular logic cell send place them on the chip in such a fashion that initial timing is better. Next step is CTS(Clock tree synthesis), in this we take care that clk should reach each and every signal at the same time also take care of each clk signal has equal rise and fall.Next step is Routing, routing has to go through the certain flow dependendent on the characterization of the flip flop.And now comes the last step STA(Static timing analysis), in this we try to see the set up time, hold time, maximum achieved frequency of the circuit. One common thing across all stages 'GATES or Cells'.
 
 
-![theory place](https://github.com/Sanjaygk6363/vsd-openlane/blob/main/day2/Screenshot%20(97).png)
+![cell design](https://github.com/Sanjaygk6363/vsd-openlane/blob/main/day2/Screenshot%20(101).png)
+
 
 After the Synthesis process, type the command for running the Floor planning
 ![floorplan steps](https://github.com/Sanjaygk6363/vsd-openlane/blob/main/day2/Screenshot%20from%202024-04-01%2018-48-03.png)

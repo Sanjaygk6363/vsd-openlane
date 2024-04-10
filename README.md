@@ -399,6 +399,52 @@ run_placement
 after opening magic tool we get
 ![verify c]( https://github.com/Sanjaygk6363/vsd-openlane/blob/main/day2/pop0o0o0.jpeg)
 ![o p](https://github.com/Sanjaygk6363/vsd-openlane/blob/main/day2/Screenshot%20(171).png)
+
+# Timing Analysis with OpenSTA tool after synthesis
+We will do STA on the initial picorv32a design which had timing violations.
+herewe run the synthesis using the following commands in openlane directory
+```bash
+    docker
+    ./flow.tcl -interactive
+    package require openlane 0.9
+    prep -design picorv32a
+    set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
+    add_lefs -src $lefs
+    set ::env(SYNTH_SIZING) 1
+    run_synthesis
+```
+
+![verify c](https://github.com/Sanjaygk6363/vsd-openlane/blob/main/day2/newwif2.jpeg)
+
+Now, we also need to create my_base.sdc file containing the content shown in below image which is from "src" dirctory
+![cdsv nj](https://github.com/Sanjaygk6363/vsd-openlane/blob/main/day1/Screenshot%20(179).png)
+
+![cdsv nj](https://github.com/Sanjaygk6363/vsd-openlane/blob/main/day1/Screenshot%202024-04-10%20150932.png)
+
+![cdsv nj](https://github.com/Sanjaygk6363/vsd-openlane/blob/main/day1/Screenshot%20(177).png)
+# Clock Tree Synthesis(CTS):
+
+ clock tree synthesis:   Efficient distribution of clock signal with minimal skew, jitter, and power consumption. Done before signal routing using OpenROAD.
+here in the diagram we can how we connect clk1 to FF1 & FF2 of stage 1 and FF1 of stage 3 and FF2 of stage 4 with physical wire with Buffer
+![clock tree](https://github.com/Sanjaygk6363/vsd-openlane/blob/main/day1/Screenshot%20(126).png)
+
+and in this we see the connection of clk2 to other flip flopes
+![clock tree2](https://github.com/Sanjaygk6363/vsd-openlane/blob/main/day1/Screenshot%20(127).png)
+
+![clo ck](https://github.com/Sanjaygk6363/vsd-openlane/blob/main/day1/Screenshot%20(119)%20-%20Copy.png)
+
+# power aware CTS
+   it show about the power usage and limitaion of it in CTS
+   ![p cts](https://github.com/Sanjaygk6363/vsd-openlane/blob/main/day1/Screenshot%20(117)%20-%20Copy.png)
+
+   Let us examine one of the CLK networks. Due to the coupling capacitance between the wires, any switching activity occurring at the aggraser will consequently immediately affect the nearby net whenever switching activity occurs at the aggraser.The method by which we can shelter the internet from these issues is called shielding. Wire is inserted between any two wires in a shielding where coupling capacitance is generated. This additional wire is either grounded or linked to VDD.
+The amount of delta delay that results from the bump that occurs when we go from logic '1' to logic '0' is visible. And in this case, skew is no longer 0. Therefore, crosstalk delta delay has the effect of making the screw value non zero
+
+![oajh n](https://github.com/Sanjaygk6363/vsd-openlane/blob/main/day1/Screenshot%20(124).png)
+
+ Timing analysis
+  ![ti mu](https://github.com/Sanjaygk6363/vsd-openlane/blob/main/day1/Screenshot%202024-04-09%20155349%20-%20Copy.png)
+  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 -----------------------------------------------------------------------------------------------------------------------------------
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -448,8 +494,12 @@ Loading PDN def in magic
 
 ![sder gs](https://github.com/Sanjaygk6363/vsd-openlane/blob/main/day1/Screenshot%20(174).png)
 
-![sder gs](https://github.com/Sanjaygk6363/vsd-openlane/blob/main/day1/Screenshot%20(175).png)
+## Routed DEF in magic show the layout in below format
+
+![rout bh](https://github.com/Sanjaygk6363/vsd-openlane/blob/main/day1/Screenshot%20(176).png)
+
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-``
+
